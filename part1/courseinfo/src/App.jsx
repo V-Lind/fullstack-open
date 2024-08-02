@@ -1,40 +1,34 @@
 /* eslint-disable react/prop-types */
 
-function Header({ course }) {
-	return <h1>{course.title}</h1>;
-}
+const Header = (props) => {
+	return <h1>{props.course.title}</h1>;
+};
 
-function Part({ part }) {
+const Part = (props) => {
 	return (
 		<p>
-			{part.name} {part.exercises}
+			{props.part.name} {props.part.exercises}
 		</p>
 	);
-}
+};
 
-function Content({ parts }) {
-	console.log(parts);
+const Content = (props) => {
 	return (
-		// <div>
-		// 	{parts.map((part, index) => (
-		// 		<p key={index}>
-		// 			{part.name} {part.exercises}
-		// 		</p>
-		// 	))}
-		// </div>
-
 		<div>
-			<Part part={parts[0]} />
-			<Part part={parts[1]} />
-			<Part part={parts[2]} />
+			<Part part={props.parts[0]} />
+			<Part part={props.parts[1]} />
+			<Part part={props.parts[2]} />
 		</div>
 	);
-}
+};
 
-function Total({ parts }) {
-	let totalExerciseCount = parts.reduce((sum, part) => sum + part.exercises, 0);
+const Total = (props) => {
+	let totalExerciseCount = props.parts.reduce(
+		(sum, part) => sum + part.exercises,
+		0
+	);
 	return <p>Number of exercises {totalExerciseCount}</p>;
-}
+};
 
 const App = () => {
 	const course = {
