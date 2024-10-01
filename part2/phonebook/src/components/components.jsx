@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-const Persons = ({ persons }) => (
+const Persons = ({ persons, handleDeletePerson }) => (
 	<ul>
 		{persons.map((person) => (
 			<li key={person.id}>
 				{person.name} {person.number}
+				<button onClick={() => handleDeletePerson(person.id)}>delete</button>
 			</li>
 		))}
 	</ul>
